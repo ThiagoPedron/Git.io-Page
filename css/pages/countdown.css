@@ -1,25 +1,44 @@
-.countdown{
+.countdown {
   display: flex;
   gap: 2em;
   text-align: center;
+  flex-wrap: wrap; /* permite quebrar em várias linhas */
+  justify-content: center;
+  padding: 20px;
 }
-.countdown div{
+
+.countdown div {
   display: flex;
   flex-direction: column;
+  flex: 1 1 100px; /* mínimo 100px por bloco */
+  align-items: center;
 }
-.number{
-      font-weight: bold;
-    font-size: 3em;
-    text-align: center;
+
+.number {
+  font-weight: bold;
+  font-size: clamp(2rem, 5vw, 3em); /* responsivo */
+  text-align: center;
 }
-body{
-      margin: 0;
-    height: 100vh;
-    background-color: #ffffff;
-    color: #37352F;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
-    align-items: center;
-    justify-content: center;
-    display: flex
-;
+
+body {
+  margin: 0;
+  height: 100vh;
+  background-color: #ffffff;
+  color: #37352F;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+    "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Ajustes para telas menores */
+@media (max-width: 600px) {
+  .countdown {
+    gap: 1em;
+  }
+
+  .number {
+    font-size: clamp(1.5rem, 7vw, 2.5rem);
+  }
 }
