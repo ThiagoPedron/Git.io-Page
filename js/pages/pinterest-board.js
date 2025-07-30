@@ -1,5 +1,4 @@
-const isLocal = window.location.hostname == "localhost";
-const urlBase = isLocal ? "http://localhost:52330/Git.io-Page/pinterest/board.html" : "https://thiagopedron.github.io/Git.io-Page/pinterest/board.html";
+const urlBase = "https://thiagopedron.github.io/Git.io-Page/pinterest/board.html";
 
 document.addEventListener("DOMContentLoaded", function () {
   if (document.querySelector(".pinterest-board")) {
