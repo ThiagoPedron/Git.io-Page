@@ -2,30 +2,29 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>countdown Generator</title>
- <script src="../main.js?nocache=6"></script>
-    <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
-    <meta content="utf-8" http-equiv="encoding" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Mukta:wght@300&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="manifest" href="/site.webmanifest" />
-    <script src="../js/pages/countdown.js"></script>
+  <title>Countdown Generator</title>
+  <link rel="stylesheet" href="../css/pages/countdown-main.css">
 </head>
 <body>
   <main>
-    <h1>countdown Generator</h1>
+    <h1>Countdown Generator</h1>
 
-    <label class="test">Event Title:
+    <label>Event Title:
       <input type="text" id="title" placeholder="My Event">
     </label>
 
     <label>Target Date:
       <input type="date" id="date">
     </label>
+
+    <label>Background Color:
+      <input type="text" id="bg" placeholder="ffffff">
+    </label>
+
+    <label>Text Color:
+      <input type="text" id="color" placeholder="000000">
+    </label>
+
     <button onclick="generateLink()">Generate</button>
 
     <h2>Embed Link</h2>
@@ -37,11 +36,9 @@
 
   <script>
     function generateLink() {
-      const title = encodeURIComponent(document.getElementById("title").value || "My Event");
       const date = document.getElementById("date").value || "2026-12-25";
 
-
-      const url = `display.html?date=${date}&title=${title}`;
+      const url = `display.html?date=${date}`;
       const fullUrl = window.location.origin + window.location.pathname.replace("index.html","") + url;
 
       document.getElementById("embedLink").value = fullUrl;
