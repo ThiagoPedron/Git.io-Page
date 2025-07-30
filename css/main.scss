@@ -1,14 +1,12 @@
-@import "./pages/tumblr-tag-list-tool";
-@import "./pages/notion-widgets";
 @import "./pages/pinterest-board";
-@import "./pages/manual-list-sorter";
+@import "./pages/countdown";
 
 // ---
 
 * {
   font-family: "Noto Sans Mono", "Consolas", "SF Mono", monospace;
   box-sizing: border-box;
-  color: #2f283c;
+  color: #eeeeee;
 }
 
 h1,
@@ -280,11 +278,7 @@ button {
   }
 }
 
-/*
-	DARK SCHEME
-*/
 
-// @media (prefers-color-scheme: dark) {
 body {
   background: rgb(12, 11, 14);
 }
@@ -358,4 +352,3 @@ button {
     border-color: #f4ecec;
   }
 }
-// }
