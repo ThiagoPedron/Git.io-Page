@@ -1,5 +1,5 @@
 const isLocal = window.location.hostname == "localhost";
-const urlBase = isLocal ? "http://localhost:52330/notion/" : "https://petracoding.github.io/notion/";
+const urlBase = isLocal ? "http://localhost:52330/notion/" : "https://thiagopedron.github.io/notion/";
 
 document.addEventListener("DOMContentLoaded", function () {
   if (document.querySelector(".notion-widgets")) {

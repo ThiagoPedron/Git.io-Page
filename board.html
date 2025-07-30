@@ -5,7 +5,10 @@
     <script src="main.js?nocache=5"></script>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
     <meta content="utf-8" http-equiv="encoding" />
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta
+      http-equiv="Cache-Control"
+      content="no-cache, no-store, must-revalidate"
+    />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
     <style>
@@ -26,8 +29,19 @@
     </style>
   </head>
   <body>
-    <a data-pin-do="embedBoard" data-pin-board-width="400" data-pin-scale-height="240" data-pin-scale-width="80" href="https://www.pinterest.at/pet1999/etc/wip-insp/"></a>
-    <script type="text/javascript" async defer src="//assets.pinterest.com/js/pinit.js"></script>
+    <a
+      data-pin-do="embedBoard"
+      data-pin-board-width="400"
+      data-pin-scale-height="240"
+      data-pin-scale-width="80"
+      href="https://www.pinterest.at/pet1999/etc/wip-insp/"
+    ></a>
+    <script
+      type="text/javascript"
+      async
+      defer
+      src="//assets.pinterest.com/js/pinit.js"
+    ></script>
     <script>
       const link = findGetParameter("link");
       const hideHeader = findGetParameter("hideHeader") || false;
@@ -35,7 +49,9 @@
       const transparent = findGetParameter("transparent") || false;
 
       if (link) {
-        document.querySelector('[data-pin-do="embedBoard"]').setAttribute("href", "https://www.pinterest.at/" + link);
+        document
+          .querySelector('[data-pin-do="embedBoard"]')
+          .setAttribute("href", "https://www.pinterest.at/" + link);
       }
 
       if (hideHeader == "1") {
