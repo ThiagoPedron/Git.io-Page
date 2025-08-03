@@ -13,14 +13,8 @@
       padding: 20px;
       border-radius: 10px;
     }
-    h1 {
-      text-align: center;
-      color: #ffffff;
-    }
-    .input-group {
-      display: flex;
-      margin-bottom: 20px;
-    }
+    h1 { text-align: center; color: #ffffff; }
+    .input-group { display: flex; margin-bottom: 20px; }
     .input-group input {
       flex: 1;
       padding: 10px;
@@ -38,14 +32,8 @@
       border-radius: 0 5px 5px 0;
       font-weight: bold;
     }
-    .input-group button:hover {
-      background-color: #2196f3;
-    }
-    ul {
-      list-style: none;
-      padding: 0;
-      margin: 0 0 20px 0;
-    }
+    .input-group button:hover { background-color: #2196f3; }
+    ul { list-style: none; padding: 0; margin: 0 0 20px 0; }
     li {
       background-color: #1e1e1e;
       padding: 10px;
@@ -63,9 +51,7 @@
       border-radius: 5px;
       padding: 5px 10px;
     }
-    li button:hover {
-      background-color: #c62828;
-    }
+    li button:hover { background-color: #c62828; }
     #result {
       width: 100%;
       padding: 10px;
@@ -85,9 +71,7 @@
       border-radius: 5px;
       font-weight: bold;
     }
-    #generate:hover {
-      background-color: #388e3c;
-    }
+    #generate:hover { background-color: #388e3c; }
   </style>
 </head>
 <body>
@@ -135,7 +119,16 @@
 
     function generateURL() {
       if (links.length === 0) return alert("Add at least one link!");
-      const url = `${window.location.origin}/instagram/board.html?posts=${encodeURIComponent(links.join(","))}`;
+      
+      // detect environment
+      let baseURL;
+      if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
+        baseURL = "http://localhost:8080"; // example: adjust port as needed
+      } else {
+        baseURL = "https://thiagopedron.github.io"; // change to your production URL
+      }
+
+      const url = `${baseURL}instagram/board.html?posts=${encodeURIComponent(links.join(","))}`;
       document.getElementById("result").value = url;
     }
   </script>
