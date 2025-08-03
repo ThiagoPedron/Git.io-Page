@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: transparent;
+      color: #e0e0e0;
+      padding: 20px;
+      text-align: center;
+    }
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      align-items: center;
+    }
+    blockquote {
+      margin: 20px auto;
+      max-width: 400px;
+      background-color: transparent;
+      border-radius: 8px;
+      padding: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="grid" id="board"></div>
+
+  <script async src="https://www.instagram.com/embed.js"></script>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const posts = params.get("posts");
+
+    if (posts) {
+      const container = document.getElementById("board");
+      posts.split(",").forEach(link => {
+        if (!link) return;
+        const block = document.createElement("blockquote");
+        block.className = "instagram-media";
+        block.setAttribute("data-instgrm-permalink", link.trim());
+        block.setAttribute("data-instgrm-version", "14");
+        container.appendChild(block);
+      });
+      if (window.instgrm) window.instgrm.Embeds.process();
+    } else {
+      document.body.innerHTML += "<p>No posts provided.</p>";
+    }
+  </script>
+</body>
+</html>

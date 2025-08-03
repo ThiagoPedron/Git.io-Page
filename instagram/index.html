@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Instagram Link Generator</title>
+  <style>
+    body {
+      background-color: #121212;
+      color: #e0e0e0;
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    h1 {
+      text-align: center;
+      color: #ffffff;
+    }
+    .input-group {
+      display: flex;
+      margin-bottom: 20px;
+    }
+    .input-group input {
+      flex: 1;
+      padding: 10px;
+      border: 1px solid #333;
+      background-color: #1e1e1e;
+      color: #fff;
+      border-radius: 5px 0 0 5px;
+    }
+    .input-group button {
+      padding: 10px 15px;
+      background-color: #4cafef;
+      border: none;
+      color: white;
+      cursor: pointer;
+      border-radius: 0 5px 5px 0;
+      font-weight: bold;
+    }
+    .input-group button:hover {
+      background-color: #2196f3;
+    }
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 20px 0;
+    }
+    li {
+      background-color: #1e1e1e;
+      padding: 10px;
+      margin-bottom: 8px;
+      border-radius: 5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    li button {
+      background-color: #e53935;
+      border: none;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+      padding: 5px 10px;
+    }
+    li button:hover {
+      background-color: #c62828;
+    }
+    #result {
+      width: 100%;
+      padding: 10px;
+      background-color: #1e1e1e;
+      color: #fff;
+      border: 1px solid #333;
+      border-radius: 5px;
+    }
+    #generate {
+      display: block;
+      margin: 20px auto;
+      background-color: #43a047;
+      border: none;
+      padding: 10px 20px;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+    #generate:hover {
+      background-color: #388e3c;
+    }
+  </style>
+</head>
+<body>
+  <h1>Instagram Link Generator</h1>
+
+  <div class="input-group">
+    <input type="text" id="linkInput" placeholder="Paste Instagram post link" />
+    <button onclick="addLink()">Add</button>
+  </div>
+
+  <ul id="linkList"></ul>
+
+  <button id="generate" onclick="generateURL()">Generate Final Link</button>
+  <input id="result" readonly />
+
+  <script>
+    const links = [];
+
+    function addLink() {
+      const input = document.getElementById("linkInput");
+      const url = input.value.trim();
+      if (!url) return alert("Please enter a valid link!");
+      links.push(url);
+      input.value = "";
+      updateList();
+    }
+
+    function removeLink(index) {
+      links.splice(index, 1);
+      updateList();
+    }
+
+    function updateList() {
+      const list = document.getElementById("linkList");
+      list.innerHTML = "";
+      links.forEach((link, index) => {
+        const li = document.createElement("li");
+        li.innerHTML = `
+          <span>${link}</span>
+          <button onclick="removeLink(${index})">❌</button>
+        `;
+        list.appendChild(li);
+      });
+    }
+
+    function generateURL() {
+      if (links.length === 0) return alert("Add at least one link!");
+      const url = `${window.location.origin}/instagram/board.html?posts=${encodeURIComponent(links.join(","))}`;
+      document.getElementById("result").value = url;
+    }
+  </script>
+</body>
+</html>
